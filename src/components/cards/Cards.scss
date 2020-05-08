@@ -1,0 +1,23 @@
+.album-veiw {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  @include tablet {
+    background-color: $darkergrey;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 5px;
+  }
+
+  &-item {
+    width: calc(50% - 4px);
+    background-color: $darkergrey;
+    margin: 2px;
+    display: flex;
+    @include tablet {
+      width: 25%;
+      margin: 0;
+    }
+  }
+}

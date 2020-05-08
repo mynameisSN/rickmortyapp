@@ -1,0 +1,16 @@
+@import "../../sass/variable";
+@import "../create-frame/CreateFrame";
+@import "../apply-filter/ApplyFilter.scss";
+@import "../card-item/CardItem.scss";
+@import "../cards/Cards.scss";
+@import "../filters/Filters.scss";
+@import "../modal/Modal.scss";
+@import "../search/Search.scss";
+@import "../sorting/Sorting.scss";
+
+#app {
+  padding: 10px;
+  @include desktop {
+    padding: 0;
+  }
+}

@@ -1,0 +1,15 @@
+.ui.form input.search-field {
+  padding-right: 8em;
+}
+.search-form {
+  @include desktop {
+    width: 100%;
+  }
+  .button-wrapper {
+    position: absolute;
+    top: 24px;
+    right: -2px;
+    margin-top: auto;
+    margin-left: 5px;
+  }
+}

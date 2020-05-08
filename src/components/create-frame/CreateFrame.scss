@@ -1,0 +1,57 @@
+@include desktop {
+  .main {
+    padding: 30px;
+    display: flex;
+    .right-col {
+      padding: 0 0 0 30px;
+      width: 100%;
+    }
+    .left-col {
+      width: 400px;
+      &.ui {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.album {
+  @include desktop {
+    // width: 70%;
+    margin-left: auto;
+  }
+}
+.search {
+  // display: flex;
+  padding: 2px;
+  @include desktop {
+    // width: 70%;
+    display: flex;
+    margin-left: auto;
+  }
+  &-bar {
+    margin-bottom: 5px;
+    position: relative;
+    @include desktop {
+      display: flex;
+      width: 40%;
+    }
+  }
+  .dropdown {
+    width: 100%;
+  }
+  .sorting {
+    @include desktop {
+      margin: auto 0 5px auto;
+    }
+  }
+}
+
+.ui.segment.loading {
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}

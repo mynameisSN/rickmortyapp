@@ -1,0 +1,78 @@
+.item-wrapper {
+  position: relative;
+  padding: 10px;
+  @include tablet {
+    padding: 5px;
+  }
+  .inside-bg {
+    height: 100%;
+    background-color: $darkgrey;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    img {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+  }
+}
+.item {
+  position: relative;
+  // top: -120px;
+  color: $white;
+
+  opacity: 0.7;
+  padding: 0 10px;
+
+  &-title {
+    position: absolute;
+    background-color: $darkgrey;
+    top: -50px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    padding: 0 10px 4px 10px;
+    @include tablet {
+      padding: 0 20px 10px 20px;
+    }
+    &-sub {
+      font-size: 8px;
+      @include tablet {
+        font-size: 10px;
+      }
+    }
+  }
+  h2 {
+    font-size: 14px;
+    margin: 5px 0 0 0;
+    @include tablet {
+      font-size: 16px;
+      margin: 5px 0 0;
+    }
+  }
+  &-details {
+    font-size: 9px;
+
+    position: relative;
+    z-index: 1;
+    @include tablet {
+      font-size: 12px;
+    }
+    p {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: solid 1px$border;
+      padding: 5px 0;
+      &:last-child {
+        border: none;
+      }
+      span {
+        width: 50%;
+        &:last-child {
+          text-align: right;
+          color: $orange;
+        }
+      }
+    }
+  }
+}

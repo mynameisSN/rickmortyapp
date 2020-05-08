@@ -1,0 +1,8 @@
+.selected-item-wrapper {
+  @include desktop {
+    margin-bottom: 20px;
+  }
+  .ui.vertical.segment {
+    margin-bottom: 20px;
+  }
+}
