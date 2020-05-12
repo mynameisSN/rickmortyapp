@@ -2,18 +2,23 @@ import React from "react";
 import CardItem from "../card-item/CardItem";
 
 const Cards = (props) => {
-  const { listItems } = props;
+  const { listItems, sortItems } = props;
+  console.log("sortItems ", sortItems);
 
-  console.log("cards comp ", props);
+  if (sortItems === "Descending") {
+    listItems.sort((a, b) => b.id - a.id);
+  } else if (sortItems === "Ascending") {
+    listItems.sort((a, b) => a.id - b.id);
+  }
 
-  console.log("cards data imageitem ", listItems);
-  const renderList = listItems.map((item, i) => {
+  const renderList = listItems.map((item, index) => {
     return (
-      <li className="album-veiw-item" key={i}>
+      <li className="album-veiw-item" key={`item-${index}`}>
         <CardItem item={item} />
       </li>
     );
   });
+
   return <ul className="album-veiw">{renderList}</ul>;
 };
 

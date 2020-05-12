@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 
 const Search = (props) => {
-  console.log("Search comp ", props);
-
   const [searchValue, setSearchValue] = useState("");
 
   const handleSearchInputChanges = (e) => {
     setSearchValue(e.target.value);
   };
-  const resetInputField = () => {
-    setSearchValue("");
-  };
 
   const callSearchFunction = (e) => {
+    console.log("ee ", e);
     e.preventDefault();
     props.search(searchValue);
-    resetInputField();
   };
 
   return (
@@ -29,7 +24,6 @@ const Search = (props) => {
             onChange={handleSearchInputChanges}
             value={searchValue}
           />
-          {/* <Button /> */}
           <div className="button-wrapper">
             <input
               className="ui primary button"

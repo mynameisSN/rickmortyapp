@@ -12,8 +12,6 @@ const ImageItem = ({ item }) => {
     origin,
     location,
   } = item;
-  // const { image, name } = item;
-  console.log("item ", item);
 
   return (
     <div className="item-wrapper">

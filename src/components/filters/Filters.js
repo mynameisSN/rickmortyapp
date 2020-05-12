@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+// import './filter.scss';
 
 const Filters = () => {
   const [speciesState, setSpeciesState] = useState([]);
   const [genderState, setGenderState] = useState([]);
+  // when componet will load first time. it will load this
 
-  // when componet will load first time. it will load useEffect and if rerender if anythng update
   useEffect(() => {
     let speciesState = [
       { id: "1", firstName: "Human" },
@@ -31,6 +32,20 @@ const Filters = () => {
     // setFilterState(filterState);
   }, []);
 
+  //   const handleChange = (item, event) => {
+  //     let checked = event.target.checked;
+  //     console.log ('hello ', checked);
+  //     console.log ('item ', item);
+
+  //     setSpeciesState (
+  //       speciesState.map (data => {
+  //         if (item.id === data.id) {
+  //           data.select = checked;
+  //         }
+  //         return data;
+  //       })
+  //     );
+  //   };
   return (
     <div className="filter-item">
       <div className="ui sizer vertical segment">
@@ -76,6 +91,7 @@ const Filters = () => {
                     <input
                       type="checkbox"
                       checked={item.select}
+                      // onChange={handleChange}
                       onChange={(e) => {
                         let checked = e.target.checked;
                         setGenderState(
