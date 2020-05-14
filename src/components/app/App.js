@@ -53,6 +53,7 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [isOpen, setIsOpen] = useState(false);
   const [sortOrder, SortDropdown] = Sorting("", "", orderList);
+  const [applyFilterCategory, setApplyFilterCategory] = useState({});
 
   useEffect(() => {
     axios.get(API_URL, {}).then((jsonResponse) => {
@@ -64,7 +65,6 @@ const App = () => {
   }, []);
 
   const search = (term) => {
-    console.log(`${API_URL}&name=${term}`);
     dispatch({
       type: "SEARCH_ITEMS_REQUEST",
     });
@@ -77,7 +77,6 @@ const App = () => {
         });
       })
       .catch((err) => {
-        console.log("error ", err.response.data.error);
         dispatch({
           type: "SEARCH_ITEMS_FAILURE",
           error: err.response.data.error,
@@ -86,16 +85,42 @@ const App = () => {
       });
   };
 
+  const showFilterCategory = (obj) => {
+    setApplyFilterCategory(obj);
+  };
+  const filter = (cate, val, select) => {
+    const hitApi = select ? `${API_URL}&${cate}=${val}` : API_URL;
+    dispatch({
+      type: "SEARCH_ITEMS_REQUEST",
+    });
+    axios
+      .get(hitApi, {})
+      .then((jsonResponse) => {
+        dispatch({
+          type: "SEARCH_ITEMS_SUCCESS",
+          payload: jsonResponse.data.results,
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: "SEARCH_ITEMS_FAILURE",
+          error: err.response.data.error,
+        });
+      });
+    const obj = { cate: cate, select: select };
+    showFilterCategory(obj);
+  };
+
   const { listItems, errorMessage, loading } = state;
 
   return (
     <div className="main">
       <div className="filter left-col ui segment">
-        <Filters />
+        <Filters filterItem={filter} />
       </div>
       <div className="right-col">
         <div className="selected-filter ui segment">
-          <ApplyFilter />
+          <ApplyFilter filterCategory={applyFilterCategory} />
         </div>
         <div className="search">
           <div className="search-bar ui">
